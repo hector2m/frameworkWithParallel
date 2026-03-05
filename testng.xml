@@ -1,0 +1,10 @@
+<suite name="CrossBrowserSuite" parallel="tests" thread-count="2">
+  <test name="Pruebas en Chrome">
+    <parameter name="browser" value="chrome" />
+    <classes> <class name="runner.YoutubeRunner" /> </classes>
+  </test>
+  <test name="Pruebas en Firefox">
+    <parameter name="browser" value="firefox" />
+    <classes> <class name="runner.YoutubeRunner" /> </classes>
+  </test>
+</suite>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-03-04T17:45:37 ART" name="CrossBrowserSuite" finished-at="2026-03-04T17:45:51 ART" duration-ms="13778">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.YoutubeRunner@291caca8]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.YoutubeRunner@68567e20]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2026-03-04T17:45:37 ART" name="Pruebas en Chrome" finished-at="2026-03-04T17:45:51 ART" duration-ms="13531">
+      <class name="runner.YoutubeRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.YoutubeRunner@291caca8]" started-at="2026-03-04T17:45:37 ART" name="setUpClass" finished-at="2026-03-04T17:45:38 ART" duration-ms="652" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@6a84a97d]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="setupBrowser(java.lang.String)[pri:0, instance:runner.YoutubeRunner@291caca8]" started-at="2026-03-04T17:45:38 ART" name="setupBrowser" finished-at="2026-03-04T17:45:38 ART" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupBrowser -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.YoutubeRunner@291caca8]" started-at="2026-03-04T17:45:38 ART" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-04T17:45:49 ART" duration-ms="10877" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["buscar una tematica usando enter"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Buscar en youtube"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.YoutubeRunner@291caca8]" started-at="2026-03-04T17:45:38 ART" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-04T17:45:51 ART" duration-ms="12714" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["buscar una tematica usando click"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Buscar en youtube"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.YoutubeRunner@291caca8]" started-at="2026-03-04T17:45:51 ART" name="tearDownClass" finished-at="2026-03-04T17:45:51 ART" duration-ms="105" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- runner.YoutubeRunner -->
+    </test> <!-- Pruebas en Chrome -->
+    <test started-at="2026-03-04T17:45:37 ART" name="Pruebas en Firefox" finished-at="2026-03-04T17:45:51 ART" duration-ms="13778">
+      <class name="runner.YoutubeRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.YoutubeRunner@68567e20]" started-at="2026-03-04T17:45:37 ART" name="setUpClass" finished-at="2026-03-04T17:45:38 ART" duration-ms="653" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@6c130c45]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="setupBrowser(java.lang.String)[pri:0, instance:runner.YoutubeRunner@68567e20]" started-at="2026-03-04T17:45:38 ART" name="setupBrowser" finished-at="2026-03-04T17:45:38 ART" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupBrowser -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.YoutubeRunner@68567e20]" started-at="2026-03-04T17:45:38 ART" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-04T17:45:51 ART" duration-ms="13055" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["buscar una tematica usando enter"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Buscar en youtube"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.YoutubeRunner@68567e20]" started-at="2026-03-04T17:45:38 ART" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-04T17:45:51 ART" duration-ms="13055" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["buscar una tematica usando click"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Buscar en youtube"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.YoutubeRunner@68567e20]" started-at="2026-03-04T17:45:51 ART" name="tearDownClass" finished-at="2026-03-04T17:45:51 ART" duration-ms="15" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- runner.YoutubeRunner -->
+    </test> <!-- Pruebas en Firefox -->
+  </suite> <!-- CrossBrowserSuite -->
+</testng-results>
