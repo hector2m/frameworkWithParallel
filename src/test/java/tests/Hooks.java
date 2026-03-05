@@ -1,5 +1,6 @@
 package tests;
 import utils.ConfigReader;
+import utils.TestListener;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -18,20 +19,39 @@ public class Hooks {
     private WebDriver driver;
 
     @Before
-    @Parameters({"browser"})
+    // @Parameters({"browser"})
     public void setUp() {
-    	// 1. Intentamos obtener el navegador del ThreadLocal del Runner
-        String browser = runner.YoutubeRunner.browserName.get();
-        
-     // 2. Si es nulo (ej. ejecución sin TestNG), buscamos en consola o properties
+    	String threadId = String.valueOf(Thread.currentThread().getId());
+        // Intentar obtener el navegador desde el listener
+        String browser = TestListener.getBrowser();
+
+        // Si por alguna razón no está, usar fallbacks (para ejecución manual)
         if (browser == null) {
             browser = System.getProperty("browser");
         }
         if (browser == null) {
-            browser = utils.ConfigReader.getProperty("browser");
+            browser = ConfigReader.getProperty("browser");
         }
 
-        // Switch profesional para Cross-Browsing
+        System.out.println("Ejecutando en hilo: " + threadId + " con el navegador: " + browser);
+
+        // Resto del código igual...
+        switch (browser.toLowerCase()) {
+            case "firefox":
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+                break;
+            case "chrome":
+            default:
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+                break;
+            case "edge":
+                WebDriverManager.edgedriver().setup();
+                driver = new EdgeDriver();
+                break;
+        }
+  /**      // Switch profesional para Cross-Browsing
         switch (browser.toLowerCase()) {
             case "firefox":
                 //WebDriverManager.firefoxdriver().setup();
@@ -48,7 +68,7 @@ public class Hooks {
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
                 break;
-        }
+        } */
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(

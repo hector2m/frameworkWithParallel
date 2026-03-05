@@ -20,13 +20,9 @@ import org.testng.annotations.Parameters;
     }
 )
 public class YoutubeRunner extends AbstractTestNGCucumberTests {
-	public static ThreadLocal<String> browserName = new ThreadLocal<>();
+	//public static ThreadLocal<String> browserName = new ThreadLocal<>();
 
-	@BeforeClass
-    @Parameters("browser")
-	public void setupBrowser(String browser) {
-        browserName.set(browser);
-    }
+	
 	
 	@Override
     @DataProvider(parallel = true)
