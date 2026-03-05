@@ -1,5 +1,6 @@
 package tests;
 import utils.ConfigReader;
+import utils.TestListener;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -18,13 +19,13 @@ public class Hooks {
     private WebDriver driver;
 
     @Before
-    @Parameters({"browser"})
+    // @Parameters({"browser"})
     public void setUp() {
-    	// 1. Intentamos obtener el navegador usando el ID del hilo
-        String threadId = String.valueOf(Thread.currentThread().getId());
-        String browser = System.getProperty("browser_" + threadId);
-        
-        // 2. Si es nulo (ej. ejecución manual del Runner sin XML), usamos consola o properties
+    	String threadId = String.valueOf(Thread.currentThread().getId());
+        // Intentar obtener el navegador desde el listener
+        String browser = TestListener.getBrowser();
+
+        // Si por alguna razón no está, usar fallbacks (para ejecución manual)
         if (browser == null) {
             browser = System.getProperty("browser");
         }
@@ -34,7 +35,7 @@ public class Hooks {
 
         System.out.println("Ejecutando en hilo: " + threadId + " con el navegador: " + browser);
 
-        // Usamos tu lógica de switch (puedes llamar aquí a BaseTest si quieres, pero por simplicidad):
+        // Resto del código igual...
         switch (browser.toLowerCase()) {
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
