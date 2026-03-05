@@ -20,18 +20,37 @@ public class Hooks {
     @Before
     @Parameters({"browser"})
     public void setUp() {
-    	// 1. Intentamos obtener el navegador del ThreadLocal del Runner
-        String browser = runner.YoutubeRunner.browserName.get();
+    	// 1. Intentamos obtener el navegador usando el ID del hilo
+        String threadId = String.valueOf(Thread.currentThread().getId());
+        String browser = System.getProperty("browser_" + threadId);
         
-     // 2. Si es nulo (ej. ejecución sin TestNG), buscamos en consola o properties
+        // 2. Si es nulo (ej. ejecución manual del Runner sin XML), usamos consola o properties
         if (browser == null) {
             browser = System.getProperty("browser");
         }
         if (browser == null) {
-            browser = utils.ConfigReader.getProperty("browser");
+            browser = ConfigReader.getProperty("browser");
         }
 
-        // Switch profesional para Cross-Browsing
+        System.out.println("Ejecutando en hilo: " + threadId + " con el navegador: " + browser);
+
+        // Usamos tu lógica de switch (puedes llamar aquí a BaseTest si quieres, pero por simplicidad):
+        switch (browser.toLowerCase()) {
+            case "firefox":
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+                break;
+            case "chrome":
+            default:
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+                break;
+            case "edge":
+                WebDriverManager.edgedriver().setup();
+                driver = new EdgeDriver();
+                break;
+        }
+  /**      // Switch profesional para Cross-Browsing
         switch (browser.toLowerCase()) {
             case "firefox":
                 //WebDriverManager.firefoxdriver().setup();
@@ -48,7 +67,7 @@ public class Hooks {
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
                 break;
-        }
+        } */
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(

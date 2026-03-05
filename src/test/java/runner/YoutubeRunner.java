@@ -25,7 +25,9 @@ public class YoutubeRunner extends AbstractTestNGCucumberTests {
 	@BeforeClass
     @Parameters("browser")
 	public void setupBrowser(String browser) {
-        browserName.set(browser);
+		// Guardamos el navegador usando el ID del hilo actual de TestNG
+        System.setProperty("browser_" + Thread.currentThread().getId(), browser);
+    
     }
 	
 	@Override
